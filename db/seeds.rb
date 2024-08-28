@@ -1,9 +1,63 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# db/seeds.rb
+
+# Destroy all records to start fresh
+ItemMeasurement.destroy_all
+ItemCart.destroy_all
+Item.destroy_all
+Order.destroy_all
+Client.destroy_all
+User.destroy_all
+
+# Reset primary keys (optional, depends on your database)
+ActiveRecord::Base.connection.reset_pk_sequence!('item_measurements')
+ActiveRecord::Base.connection.reset_pk_sequence!('item_carts')
+ActiveRecord::Base.connection.reset_pk_sequence!('items')
+ActiveRecord::Base.connection.reset_pk_sequence!('orders')
+ActiveRecord::Base.connection.reset_pk_sequence!('clients')
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
+
+# Create a user
+user = User.create!(
+  email: "rod@gmail.com",
+  password: "123456" # In a real scenario, use Devise to encrypt passwords
+)
+
+# Create clients
+clients = [
+  { first_name: "John", last_name: "Doe", phone_number: "1234567890", address: "123 Tailor St" },
+  { first_name: "Jane", last_name: "Smith", phone_number: "0987654321", address: "456 Seam Rd" },
+  { first_name: "Bob", last_name: "Brown", phone_number: "1122334455", address: "789 Fabric Ln" }
+]
+
+clients.each do |client_data|
+  client = Client.create!(client_data)
+
+  # Create an order for each client
+  order = Order.create!(status: "Pending", user: user, client: client)
+
+  # Create items with measurements for each client
+  items = [
+    { title: "Shirt 1", fabric: "Cotton", specifications: "Blue, slim fit", item_type: "Shirt", price: 50.0, deposit: 20.0, balance: 30.0 },
+    { title: "Shirt 2", fabric: "Linen", specifications: "White, regular fit", item_type: "Shirt", price: 60.0, deposit: 25.0, balance: 35.0 },
+    { title: "Trousers", fabric: "Wool", specifications: "Black, straight fit", item_type: "Trousers", price: 80.0, deposit: 30.0, balance: 50.0 },
+    { title: "Suit", fabric: "Silk", specifications: "Gray, tailored fit", item_type: "Suit", price: 200.0, deposit: 80.0, balance: 120.0 }
+  ]
+
+  items.each do |item_data|
+    item = Item.create!(item_data)
+    ItemCart.create!(status: "In Progress", deadline: Date.today + 21.days, order: order, item: item)
+
+    # Create measurements for each item
+    measurements = [
+      { title: "Chest", dimensions: "#{rand(36..44).to_f}", item: item },
+      { title: "Waist", dimensions: "#{rand(36..44).to_f}" , item: item },
+      { title: "Length", dimensions: "#{rand(36..44).to_f}" , item: item }, 
+    ]
+
+    measurements.each do |measurement_data|
+      ItemMeasurement.create!(measurement_data)
+    end
+  end
+end
+
+puts "Seeds generated successfully!"
