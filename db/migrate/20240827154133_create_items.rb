@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration[7.1]
       t.string :title
       t.string :fabric
       t.text :specifications
-      t.string :type
+      t.string :item_type
       t.float :price
       t.float :deposit
       t.float :balance
