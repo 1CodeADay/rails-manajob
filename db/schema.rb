@@ -36,16 +36,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_154907) do
 
   create_table "item_measurements", force: :cascade do |t|
     t.string "title"
-    t.float "dimensions"
+    t.string "dimensions"
+    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_measurements_on_item_id"
   end
 
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.string "fabric"
     t.text "specifications"
-    t.string "type"
+    t.string "item_type"
     t.float "price"
     t.float "deposit"
     t.float "balance"
@@ -77,6 +79,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_154907) do
 
   add_foreign_key "item_carts", "items"
   add_foreign_key "item_carts", "orders"
+  add_foreign_key "item_measurements", "items"
   add_foreign_key "orders", "clients"
   add_foreign_key "orders", "users"
 end
