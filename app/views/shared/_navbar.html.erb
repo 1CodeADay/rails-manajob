@@ -1,38 +1,42 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+<nav class="bg-navbar-grey shadow-navbar">
+  <div class="mx-auto max-w-8xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex flex-shrink-0 items-center">
+          <a href="<%= root_path %>">
+            <%= image_tag('logomanajob.png', alt: 'Manajob_logo', style: 'box-shadow: 0px 0px 15px black;', class: 'h-12 w-12 rounded-full border border-solid border-white') %>
           </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+        </div>
+      </div>
+
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <div class="relative ml-3" data-controller="profile-menu">
+
+          <div>
+            <button type="button" class="relative flex rounded-full bg-navbar-grey text-sm ring-white ring-2 hover:ring-2 hover:ring-gold shadow-profile-button" data-action="click->profile-menu#toggle" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+              <span class="absolute -inset-1.5"></span>
+              <span class="sr-only">Open user menu</span>
+              <svg class="h-8 w-8" fill="currenColor" viewBox="-2 -2 28 28" xmlns="http://www.w3.org/2000/svg" stroke-width="1" stroke="none" >
+                <path stroke-linecap="round" stroke-linejoin="round" fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-navbar-grey py-1 hidden shadow-profile-menu" data-profile-menu-target="menu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+            <!-- Active: "bg-gray-100", Not Active: "" -->
+            <% if user_signed_in? %>
+              <a href="<%= destroy_user_session_path %>" data-turbo-method="delete" class="block px-4 py-2 text-sm text-gold hover:text-white hover:bg-gold" role="menuitem" tabindex="-1" id="user-menu-item-0">Sign Out</a>
+              <a href="<%= edit_user_registration_path %>" class="block px-4 py-2 text-sm text-gold hover:text-white hover:bg-gold" role="menuitem" tabindex="-1" id="user-menu-item-1">Profile Edit</a>
+            <% else %>
+              <a href="<%= new_user_session_path %>" class="block px-4 py-2 text-sm text-gold hover:text-white hover:bg-gold" role="menuitem" tabindex="-1" id="user-menu-item-2">Login</a>
+              <a href="<%= new_user_registration_path %>" class="block px-4 py-2 text-sm text-gold hover:text-white hover:bg-gold" role="menuitem" tabindex="-1" id="user-menu-item-3">Sign Up</a>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
-</div>
+
+</nav>

@@ -1,2 +1,55 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div id="home">
+  <div>
+    <div class="banner drop-shadow-lg bg-cover bg-center bg-no-repeat py-[200px]" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_path('background_home.jpg') %>'); background-size: 100%;">
+      <h1 class="text-3xl font-extrabold text-gold ml-12">Manajob provides handmade tailoring</h1><br>
+      <h2 class="text-2xl font-bold text-gold ml-12 italic">for Individuals and Businesses</h2>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-bold text-center mt-6 text-black">Top Services</h2>
+
+  <div class="cards flex flex-wrap justify-between items-center my-8 mx-16">
+
+    <div class="card-category bg-cover flex justify-center items-center m-4 w-80 h-48 rounded-lg text-white text-3xl font-bold" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path('madetomeasure.jpeg') %>')">
+      Made to measure
+    </div>
+
+    <div class="card-category bg-cover flex justify-center items-center m-4 w-80 h-48 rounded-lg text-white text-3xl font-bold" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path('readytowear.jpeg') %>')">
+      Ready to wear
+    </div>
+
+    <div class="card-category bg-cover flex justify-center items-center m-4 w-80 h-48 rounded-lg text-white text-3xl font-bold" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path('alterations.jpeg') %>')">
+      Alterations
+    </div>
+
+    <div class="card-category bg-cover flex justify-center items-center m-4 w-80 h-48 rounded-lg text-white text-3xl font-bold" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path('restorations.jpeg') %>')">
+      Restorations
+    </div>
+
+  </div>
+
+  <div class="history text-center">
+    <h2 class="text-2xl font-bold mt-6 mb-5 text-black">Our History</h2>
+    <p class="border-2 border-gray-200 rounded-full"><strong>Manajob</strong> was founded in 2024 by a group of friends who wanted to help the tailoring sector to have a digital plateform to better manage their businesses.</p>
+  </div>
+
+  <div>
+    <div class="slider text-center relative block w-full h-80 oveflow-hidden my-5 mx-auto">
+      <div class="slide">
+          <p class="font-bold font-sans text-6xl inline-block w-full text-white">Made to measure</p>
+      </div>
+      <div class="slide">
+          <p class="font-bold font-sans text-6xl inline-block w-full text-white">Ready to wear</p>
+      </div>
+      <div class="slide">
+          <p class="font-bold font-sans text-6xl inline-block w-full text-white">Alterations</p>
+      </div>
+      <div class="slide">
+          <p class="font-bold font-sans text-6xl inline-block w-full text-white">Restorations</p>
+      </div>
+    </div>
+  </div>
+
+
+</div>
