@@ -1,20 +1,33 @@
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<div id="login">
+  <div class="flex-col mx-auto text-center w-2/3 lg:w-1/3">
+    <h1 class="text-3xl font-extrabold mb-6 mt-3">Log in</h1>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs space-y-4">
+        <div>
+          <%= f.input :email,
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email", class: "w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
+                      label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+        </div>
+        <div>
+          <%= f.input :password,
+                      required: false,
+                      input_html: { autocomplete: "current-password", class: "w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
+                      label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+        </div>
+        <div>
+          <%= f.input :remember_me,
+                      as: :boolean,
+                      wrapper_html: { class: "flex items-center justify-center" },
+                      input_html: { class: "h-4 w-4 mr-2 text-navbar-grey border-gray-400 rounded focus:ring-gold align-middle" },
+                      label_html: { class: "text-sm text-gray-900 align-middle" } if devise_mapping.rememberable? %>
+        </div>
+      </div>
+      <div class="form-actions mt-4">
+        <%= f.button :submit, "Log in", class: "w-full mb-4 px-4 py-2 bg-navbar-grey text-gold rounded-md hover:bg-gold hover:text-white focus:outline-none focus:ring-2 focus:ring-navbar-grey focus:ring-offset-2", style: "white-space: normal;" %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

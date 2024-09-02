@@ -1,8 +1,8 @@
 # db/seeds.rb
 
 # Destroy all records to start fresh
-ItemMeasurement.destroy_all
 ItemCart.destroy_all
+ItemMeasurement.destroy_all
 Item.destroy_all
 Order.destroy_all
 Client.destroy_all
@@ -18,8 +18,8 @@ ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
 # Create a user
 user = User.create!(
-  email: "rod@gmail.com",
-  password: "123456" # In a real scenario, use Devise to encrypt passwords
+  email: "rod@gmail.com", password: "123456"
+  # In a real scenario, use Devise to encrypt passwords
 )
 
 # Create clients
@@ -51,7 +51,7 @@ clients.each do |client_data|
     measurements = [
       { title: "Chest", dimensions: "#{rand(36..44).to_f}", item: item },
       { title: "Waist", dimensions: "#{rand(36..44).to_f}" , item: item },
-      { title: "Length", dimensions: "#{rand(36..44).to_f}" , item: item }, 
+      { title: "Length", dimensions: "#{rand(36..44).to_f}" , item: item },
     ]
 
     measurements.each do |measurement_data|

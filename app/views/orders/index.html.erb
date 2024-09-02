@@ -1,3 +1,29 @@
+<div class="flex w-full h-screen">
+  <%= render "shared/sidebar" %>
 
-<h1>Orders#index</h1>
-<p>Find me in app/views/orders/index.html.erb</p>
+  <div  data-controller="datatable" class="flex-grow h-screen bg-gold">
+<table id="example" class="display" style="width:100%">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Airi Satou</td>
+            <td>Accountant</td>
+            <td>Tokyo</td>
+            <td>33</td>
+            <td>2008-11-28</td>
+            <td>$162,700</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+
