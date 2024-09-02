@@ -1,2 +1,28 @@
 <h1>Clients#index</h1>
 <p>Find me in app/views/clients/index.html.erb</p>
+
+<div id="index-page">
+  <div class="client-container">
+    <div class="client-box">
+    <% @clients.each do |client| %>
+      <div class="client-item">
+        <a href="/clients/<%= client.id %>" class="client-item-link">
+          <div class="client-item-corner"></div>
+          <div class="client-item-info">First Name :
+            <span class="client-item-info-sp"><%= client.first_name %></span>
+          </div>
+          <div class="client-item-info">Last Name :
+            <span class="client-item-info-sp"><%= client.last_name %></span>
+          </div>
+          <div class="client-item-info">Phone number :
+            <span class="client-item-info-sp"><%= client.phone_number %></span>
+          </div>
+          <div class="client-item-info">Address :
+            <span class="client-item-info-sp"><%= client.address %></span>
+          </div>
+        </a>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
