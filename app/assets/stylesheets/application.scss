@@ -1,15 +1,22 @@
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
-@import "config/bootstrap_variables";
 
 // External libraries
-@import "bootstrap";
 @import "font-awesome";
+@import "https//cdn.datatables.net/2.1.5/css/dataTables.dataTables.min.css";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "orders/index";
+@import "orders/show";
+@import "orders/new";
+@import "orders/edit";
+@import "item_carts/index";
+@import "item_carts/show";
+@import "item_carts/new";
+@import "item_carts/edit";
 @import "clients/index";
 @import "clients/show";
 @import "clients/new";
