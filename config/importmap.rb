@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "datatables.net-dt" # @2.1.5
 pin "datatables.net" # @2.1.5
 pin "jquery" # @3.7.1
+pin "tailwindcss-tables" # @0.4.0
