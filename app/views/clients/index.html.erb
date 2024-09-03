@@ -1,12 +1,12 @@
-<div class="flex w-full  h-screen">
-  <%= render "shared/sidebar" %>
-  <div class="flex-grow h-screen">
+<div class="flex w-full h-screen">
+  <%= render "shared/sidebar", class: "h-full"%>
+  <div class="flex-grow h-full overflow-auto">
     <div class="client-box">
       <% @clients.each do |client| %>
         <div class="client-item">
           <a href="/clients/<%= client.id %>" class="client-item-link">
             <div class="client-item-corner"></div>
-            <div class="client-item-title">¤ <%= client.first_name %>  <%= client.last_name %> ¤</div>
+            <div class="client-item-title"><%= client.first_name %> <%= client.last_name %></div>
             <div class="client-item-info">First Name :
               <span class="client-item-info-sp"><%= client.first_name %></span>
             </div>

@@ -5,5 +5,4 @@ class Order < ApplicationRecord
   has_many :items, through: :item_carts # This is a join table
 
   validates :status, presence: true
-
 end
