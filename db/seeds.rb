@@ -38,7 +38,16 @@ clients.each do |client_data|
     { title: "Shirt 1", fabric: "Cotton", specifications: "Blue, slim fit", item_type: "Shirt", price: 50.0, deposit: 20.0, balance: 30.0 },
     { title: "Shirt 2", fabric: "Linen", specifications: "White, regular fit", item_type: "Shirt", price: 60.0, deposit: 25.0, balance: 35.0 },
     { title: "Trousers", fabric: "Wool", specifications: "Black, straight fit", item_type: "Trousers", price: 80.0, deposit: 30.0, balance: 50.0 },
-    { title: "Suit", fabric: "Silk", specifications: "Gray, tailored fit", item_type: "Suit", price: 200.0, deposit: 80.0, balance: 120.0 }
+    { title: "Jacket", fabric: "Wool", specifications: "Navy, slim fit", item_type: "Jacket", price: 150.0, deposit: 60.0, balance: 90.0 },
+    { title: "Blazer", fabric: "Linen", specifications: "Beige, relaxed fit", item_type: "Blazer", price: 180.0, deposit: 70.0, balance: 110.0 },
+    { title: "Trousers", fabric: "Cotton", specifications: "Black, straight fit", item_type: "Trousers", price: 100.0, deposit: 40.0, balance: 60.0 },
+    { title: "Shirt", fabric: "Silk", specifications: "White, regular fit", item_type: "Shirt", price: 80.0, deposit: 30.0, balance: 50.0 },
+    { title: "Overcoat", fabric: "Wool", specifications: "Gray, double-breasted", item_type: "Overcoat", price: 250.0, deposit: 100.0, balance: 150.0 },
+    { title: "Vest", fabric: "Polyester", specifications: "Navy, tailored fit", item_type: "Vest", price: 70.0, deposit: 25.0, balance: 45.0 },
+    { title: "Dress", fabric: "Silk", specifications: "Red, A-line", item_type: "Dress", price: 220.0, deposit: 85.0, balance: 135.0 },
+    { title: "Skirt", fabric: "Cotton", specifications: "Black, pencil fit", item_type: "Skirt", price: 90.0, deposit: 35.0, balance: 55.0 },
+    { title: "Blouse", fabric: "Linen", specifications: "Pink, regular fit", item_type: "Blouse", price: 70.0, deposit: 25.0, balance: 45.0 },
+    { title: "Pants", fabric: "Denim", specifications: "Blue, relaxed fit", item_type: "Pants", price: 120.0, deposit: 50.0, balance: 70.0 },
   ]
 
   items.each do |item_data|
@@ -50,6 +59,16 @@ clients.each do |client_data|
       { title: "Chest", dimensions: "#{rand(36..44).to_f}", item: item },
       { title: "Waist", dimensions: "#{rand(36..44).to_f}" , item: item },
       { title: "Length", dimensions: "#{rand(36..44).to_f}" , item: item },
+      { title: "Shoulder", dimensions: "#{rand(16..22).to_f}", item: item },
+      { title: "Hip", dimensions: "#{rand(36..44).to_f}", item: item },
+      { title: "Sleeve Length", dimensions: "#{rand(22..28).to_f}", item: item },
+      { title: "Neck", dimensions: "#{rand(14..18).to_f}", item: item },
+      { title: "Thigh", dimensions: "#{rand(20..26).to_f}", item: item },
+      { title: "Inseam", dimensions: "#{rand(30..36).to_f}", item: item },
+      { title: "Armhole", dimensions: "#{rand(18..24).to_f}", item: item },
+      { title: "Cuff", dimensions: "#{rand(8..12).to_f}", item: item },
+      { title: "Rise", dimensions: "#{rand(8..14).to_f}", item: item },
+      { title: "Knee", dimensions: "#{rand(14..18).to_f}", item: item },
     ]
 
     measurements.each do |measurement_data|
