@@ -1,20 +1,12 @@
 # db/seeds.rb
 
 # Destroy all records to start fresh
-ItemCart.destroy_all
 ItemMeasurement.destroy_all
+ItemCart.destroy_all
 Item.destroy_all
 Order.destroy_all
 Client.destroy_all
 User.destroy_all
-
-# Reset primary keys (optional, depends on your database)
-ActiveRecord::Base.connection.reset_pk_sequence!('item_measurements')
-ActiveRecord::Base.connection.reset_pk_sequence!('item_carts')
-ActiveRecord::Base.connection.reset_pk_sequence!('items')
-ActiveRecord::Base.connection.reset_pk_sequence!('orders')
-ActiveRecord::Base.connection.reset_pk_sequence!('clients')
-ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
 # Create a user
 user = User.create!(
@@ -24,9 +16,15 @@ user = User.create!(
 
 # Create clients
 clients = [
-  { first_name: "John", last_name: "Doe", phone_number: "1234567890", address: "123 Tailor St" },
-  { first_name: "Jane", last_name: "Smith", phone_number: "0987654321", address: "456 Seam Rd" },
-  { first_name: "Bob", last_name: "Brown", phone_number: "1122334455", address: "789 Fabric Ln" }
+  { first_name: "John", last_name: "Doe", phone_number: "1234567890", address: "Casablanca maroc" },
+  { first_name: "Jane", last_name: "Smith", phone_number: "0987654321", address: "Ain sebaa maroc" },
+  { first_name: "Bob", last_name: "Brown", phone_number: "1122334455", address: "Dakhla maroc" },
+  { first_name: "John", last_name: "Doe", phone_number: "1234567890", address: "Tanger maroc" },
+  { first_name: "Jane", last_name: "Smith", phone_number: "0987654321", address: "Mohamedia maroc" },
+  { first_name: "Bob", last_name: "Brown", phone_number: "1122334455", address: "Safi maroc" },
+  { first_name: "John", last_name: "Doe", phone_number: "1234567890", address: "el jadida maroc" },
+  { first_name: "Jane", last_name: "Smith", phone_number: "0987654321", address: "sale maroc" },
+  { first_name: "Bob", last_name: "Brown", phone_number: "1122334455", address: "kenitra maroc" }
 ]
 
 clients.each do |client_data|
