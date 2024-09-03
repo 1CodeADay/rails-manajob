@@ -1,26 +1,32 @@
-<div class="flex w-full h-screen">
-  <%= render "shared/sidebar" %>
-  <div  data-controller="datatable" class="flex-grow h-screen bg-gold">
-    <table id="example" class="display" style="width:100%">
+<div class="flex w-full h-screen ">
+  <%= render "shared/sidebar", class: "h-full"%>
+  <div  data-controller="datatable" class="flex-grow h-full overflow-auto bg-gold">
+    <table id="example" class="display">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Office</th>
-          <th>Age</th>
-          <th>Start date</th>
-          <th>Salary</th>
+          <th>Order</th>
+          <th>Date</th>
+          <th>Client</th>
+          <th>Items</th>
+          <th>Order Status</th>
+          <th>Price</th>
+          <th>Deposit</th>
+          <th>Balance</th>
+          <th>Deadline</th>
         </tr>
       </thead>
       <tbody>
-        <% for i in 1..100 %>
+        <% @orders.each do |order| %>
           <tr>
-            <td>Airi Satou</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>33</td>
-            <td>2008-11-28</td>
-            <td>$162,700</td>
+            <td><%= order.id%></td>
+            <td><%= order.created_at%></td>
+            <td><%= order.client.first_name %> <%= order.client.last_name %></td>
+            <td><%= order.items.count %> </td>
+            <td><%= order.status %> </td>
+            <td><%= order.items.sum(:price) %> </td>
+            <td><%= order.items.sum(:deposit)%> </td>
+            <td><%= order.items.sum(:balance)%> </td>
+            <td><%= order.item_carts.first.deadline%> </td>
           </tr>
         <% end %>
       </tbody>
