@@ -1,19 +1,19 @@
 <div class="flex w-full h-screen">
   <%= render "shared/sidebar" %>
-
   <div  data-controller="datatable" class="flex-grow h-screen bg-gold">
-<table id="example" class="display" style="width:100%">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
-          </tr>
-        </thead>
-        <tbody>
+    <table id="example" class="display" style="width:100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Age</th>
+          <th>Start date</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for i in 1..100 %>
           <tr>
             <td>Airi Satou</td>
             <td>Accountant</td>
@@ -22,8 +22,8 @@
             <td>2008-11-28</td>
             <td>$162,700</td>
           </tr>
-        </tbody>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>
-
