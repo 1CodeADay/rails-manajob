@@ -1,14 +1,15 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
+  <div class="bg-teal-300 border-l-4 border-teal-500 text-teal-700 fixed bottom-4 right-4 max-w-xs z-50 p-4 m-1" data-controller="notice" data-notice-target="notice">
     <%= notice %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    <button type="button" class="absolute top-0 bottom-0 right-0 px-4 py-3 text-teal-800 focus:outline-none hover:text-teal-900" aria-label="Close">
     </button>
   </div>
 <% end %>
+
 <% if alert %>
-  <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
+  <div class="bg-red-300 border-l-4 border-red-500 text-red-700 fixed bottom-4 right-4 max-w-xs z-50 p-4 m-1"  data-controller="alert" data-alert-target="alert">
     <%= alert %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    <button type="button" class="absolute top-0 bottom-0 right-0 px-4 py-3 text-red-800 focus:outline-none hover:text-red-900" aria-label="Close">
     </button>
   </div>
 <% end %>
