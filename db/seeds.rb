@@ -8,14 +8,6 @@ Order.destroy_all
 Client.destroy_all
 User.destroy_all
 
-# Reset primary keys (optional, depends on your database)
-ActiveRecord::Base.connection.reset_pk_sequence!('item_measurements')
-ActiveRecord::Base.connection.reset_pk_sequence!('item_carts')
-ActiveRecord::Base.connection.reset_pk_sequence!('items')
-ActiveRecord::Base.connection.reset_pk_sequence!('orders')
-ActiveRecord::Base.connection.reset_pk_sequence!('clients')
-ActiveRecord::Base.connection.reset_pk_sequence!('users')
-
 # Create a user
 user = User.create!(
   email: "rod@gmail.com", password: "123456"
@@ -24,19 +16,15 @@ user = User.create!(
 
 # Create clients
 clients = [
-  { first_name: "John", last_name: "Doe", phone_number: "1234567890", address: "123 Tailor St" },
-  { first_name: "Jane", last_name: "Smith", phone_number: "0987654321", address: "456 Seam Rd" },
-  { first_name: "Bob", last_name: "Brown", phone_number: "1122334455", address: "789 Fabric Ln" },
-  { first_name: "Alice", last_name: "Smith", phone_number: "2233445566", address: "456 Oak St" },
-  { first_name: "John", last_name: "Doe", phone_number: "3344556677", address: "123 Pine Ave" },
-  { first_name: "Emma", last_name: "Johnson", phone_number: "4455667788", address: "987 Elm Dr" },
-  { first_name: "Michael", last_name: "Williams", phone_number: "5566778899", address: "321 Birch Rd" },
-  { first_name: "Olivia", last_name: "Jones", phone_number: "6677889900", address: "654 Maple Blvd" },
-  { first_name: "Liam", last_name: "Garcia", phone_number: "7788990011", address: "789 Cedar St" },
-  { first_name: "Sophia", last_name: "Martinez", phone_number: "8899001122", address: "246 Spruce Ln" },
-  { first_name: "Noah", last_name: "Rodriguez", phone_number: "9900112233", address: "135 Redwood Pl" },
-  { first_name: "Ava", last_name: "Davis", phone_number: "1011223344", address: "852 Fir Ct" },
-  { first_name: "James", last_name: "Miller", phone_number: "1122334466", address: "369 Sycamore Ln" },
+  { first_name: "John", last_name: "Doe", phone_number: "1234567890", address: "Casablanca maroc" },
+  { first_name: "Jane", last_name: "Smith", phone_number: "0987654321", address: "Ain sebaa maroc" },
+  { first_name: "Bob", last_name: "Brown", phone_number: "1122334455", address: "Dakhla maroc" },
+  { first_name: "John", last_name: "Doe", phone_number: "1234567890", address: "Tanger maroc" },
+  { first_name: "Jane", last_name: "Smith", phone_number: "0987654321", address: "Mohamedia maroc" },
+  { first_name: "Bob", last_name: "Brown", phone_number: "1122334455", address: "Safi maroc" },
+  { first_name: "John", last_name: "Doe", phone_number: "1234567890", address: "el jadida maroc" },
+  { first_name: "Jane", last_name: "Smith", phone_number: "0987654321", address: "sale maroc" },
+  { first_name: "Bob", last_name: "Brown", phone_number: "1122334455", address: "kenitra maroc" }
 ]
 
 clients.each do |client_data|

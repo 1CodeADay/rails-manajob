@@ -3,12 +3,23 @@ class ClientsController < ApplicationController
 
   def index
     @clients = Client.all
+
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @clients.geocoded.map do |client|
+      {
+        lat: client.latitude,
+        lng: client.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {client: client})
+
+      }
+    end
   end
 
   def create
     @client = Client.new(client_params)
-    @client.save
-    redirect_to clients_path(@client)
+    if @client.save!
+      redirect_to clients_path(@client)
+    end
   end
 
   def new
@@ -34,7 +45,7 @@ class ClientsController < ApplicationController
 private
 
   def client_params
-    params.require(:client).permit(:first_name, :last_name, :phone_number, :address)
+    params.require(:client).permit(:first_name, :last_name, :phone_number, :address, :photo)
   end
 
   def set_client
