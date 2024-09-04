@@ -9,7 +9,8 @@ class ClientsController < ApplicationController
       {
         lat: client.latitude,
         lng: client.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {client: client})
+        info_window_html: render_to_string(partial: "info_window", locals: {client: client}),
+        marker_html: render_to_string(partial: "marker", locals: {client: client})
 
       }
     end

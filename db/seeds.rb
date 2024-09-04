@@ -52,7 +52,7 @@ clients.each do |client_data|
 
   items.each do |item_data|
     item = Item.create!(item_data)
-    ItemCart.create!(status: "In Progress", deadline: Date.today + 21.days, order: order, item: item)
+    ItemCart.create!(status: "In Progress", deadline: Date.today + [2,3,4,5,6,9,12,14,15].sample.days, order: order, item: item)
 
     # Create measurements for each item
     measurements = [
