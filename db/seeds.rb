@@ -1,5 +1,5 @@
 # db/seeds.rb
-
+puts "Start Seeds !!"
 # Destroy all records to start fresh
 ItemMeasurement.destroy_all
 ItemCart.destroy_all
