@@ -2,12 +2,19 @@
   <div class="mx-auto max-w-8xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
 
-      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+      <div class="flex flex-1 items-center justify-between ">
         <div class="flex flex-shrink-0 items-center">
           <a href="<%= root_path %>">
             <%= image_tag('logomanajob.png', alt: 'Manajob_logo', style: 'box-shadow: 0px 0px 15px black;', class: 'h-12 w-12 rounded-full border border-solid border-white') %>
           </a>
         </div>
+        <div class="flex">
+
+          <a href="<%= orders_path %>" class="block px-4 py-2 text-sm text-gold hover:text-white hover:font-bold" >Orders</a>
+          <a href="<%= clients_path %>" class="block px-4 py-2 text-sm text-gold hover:text-white hover:font-bold" >Clients</a>
+
+        </div>
+
       </div>
 
       <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -32,6 +39,8 @@
               <a href="<%= new_user_session_path %>" class="block px-4 py-2 text-sm text-gold hover:text-white hover:bg-gold" role="menuitem" tabindex="-1" id="user-menu-item-2">Login</a>
               <a href="<%= new_user_registration_path %>" class="block px-4 py-2 text-sm text-gold hover:text-white hover:bg-gold" role="menuitem" tabindex="-1" id="user-menu-item-3">Sign Up</a>
             <% end %>
+
+
           </div>
 
         </div>
