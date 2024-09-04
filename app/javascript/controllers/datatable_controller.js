@@ -4,7 +4,7 @@ import DataTable from "datatables.net-dt"
 export default class extends Controller {
   connect() {
     new DataTable('#orders', {
-      pageLength: 5
+      pageLength: 9
   });
   }
 }
