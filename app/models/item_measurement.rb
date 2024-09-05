@@ -1,5 +1,5 @@
 class ItemMeasurement < ApplicationRecord
-  belongs_to :item
+  belongs_to :client
 
   validates :title, :dimensions, presence: true
 end

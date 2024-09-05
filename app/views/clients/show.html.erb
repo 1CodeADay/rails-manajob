@@ -1,9 +1,15 @@
-<div class="flex w-full  h-screen">
+<div class="flex w-full  h-screen"  data-controller="measurement">
+  <input type="hidden" id="swal-clientId" value="<%= @client.id %>">
 
   <%= render "shared/sidebar" %>
-<div class="flex-grow h-screen bg-gold"></div>
-</div>
+  <div class="flex-grow h-screen bg-gold">
+    Client Mesurements :
+    <% @measurements.each do |m| %>
+      <%= m.title %>
+      <%= m.dimensions %>
+    <% end %>
 
-<div>
+    <button data-action="click->measurement#showPopup" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" > Add Measurement </button>
 
+  </div>
 </div>

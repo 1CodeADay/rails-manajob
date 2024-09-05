@@ -31,6 +31,9 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @client = Client.find(params[:id])
+    # client measurements
+    @measurements = ItemMeasurement.where(client_id: @client.id)
   end
 
   def update
