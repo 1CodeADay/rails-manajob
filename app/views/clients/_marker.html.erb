@@ -1,8 +1,9 @@
 
-<%= (client.orders.last&.item_carts&.first&.deadline&.to_date - Date.today).to_i  %>
-<% is_deadline_close =(client.orders.last&.item_carts&.first&.deadline&.to_date - Date.today).to_i < 7 %>
+<%= (client.orders.last&.item_carts&.first&.deadline&.to_date - Date.today).to_i if client.orders.last&.item_carts&.first&.deadline&.to_date %>
+<% is_deadline_close =(client.orders.last&.item_carts&.first&.deadline&.to_date - Date.today).to_i < 7 if client.orders.last&.item_carts&.first&.deadline&.to_date %>
 <div class="relative ">
   <%= image_tag "pin.png", height: 30, width: 30, alt: "Logo" %>
-  <%= image_tag "logo.png", height: 30, width: 30, alt: "Logo",class: "absolute top-[-2px] left-[1px] rounded-full border-2 #{ is_deadline_close ? 'border-red-500' : 'border-green-500' }" %>
+
+  <%= cl_image_tag client.photo.key, height: 300, width: 400, crop: :fill, class: "absolute top-[-2px] left-[1px] rounded-full border-2 #{ is_deadline_close ? 'border-red-500' : 'border-green-500' }  w-10 h-10 object-cover" if client.photo.key.present? %>
 
 </div>
