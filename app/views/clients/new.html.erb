@@ -1,10 +1,9 @@
 <div class="flex w-full h-screen">
-  <%= render "shared/sidebar" %>
-  <div class=" flex flex-col flex-grow h-screen bg-gold justify-center items-center" id="client-new">
-    <div class="mt-[-60px] max-w-md border border-r-gray-500 shadow-lg bg-slate-400 bg-opacity-40 rounded-lg px-20 py-10"> <!-- Added margin-top class -->
+  <%= render "shared/sidebar", class: "h-full"%>
+  <div class="flex-grow flex-col h-full bg-white justify-center items-center overflow-scroll" id="client-new">
+    <div class="mt-[-60px] max-w-md border-4 border-gold  bg-navbar-grey bg-opacity-50 rounded-lg px-20 py-10"> <!-- Added margin-top class -->
       <h2 class=" font-bold pb-10 text-2xl">Create a new client</h2>
       <%= simple_form_for Client.new do |f|  %>
-
         <div class="form-inputs space-y-4">
           <div>
             <%= f.input :first_name,
@@ -13,7 +12,6 @@
                         input_html: { autocomplete: "first_name", class: "w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
                         label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
           </div>
-
           <div>
             <%= f.input :last_name,
                         required: true,
@@ -21,7 +19,6 @@
                         input_html: { autocomplete: "last_name", class: "w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
                         label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
           </div>
-
           <div>
             <%= f.input :phone_number,
                         required: true,
@@ -29,7 +26,6 @@
                         input_html: { autocomplete: "first_name", class: "w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
                         label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
           </div>
-
           <div>
             <%= f.input :address,
                         required: true,
@@ -37,7 +33,6 @@
                         input_html: { autocomplete: "address", class: "w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
                         label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
           </div>
-
           <div>
 
             <div class="flex items-center justify-center w-full">
@@ -58,7 +53,7 @@
         </div>
 
         <div class="form-actions mt-4">
-          <%= f.button :submit, "Create client", class: "w-full mb-4 px-4 py-2 bg-navbar-grey text-gold rounded-md hover:bg-gold hover:text-white focus:outline-none focus:ring-2 focus:ring-navbar-grey focus:ring-offset-2", style: "white-space: normal;" %>
+          <%= f.button :submit, "Create client", class: "w-full mb-4 px-4 py-2 bg-navbar-grey text-gold rounded-md hover:bg-gold hover:text-white hover:ring-2 hover:ring-white focus:outline-none focus:ring-2 focus:ring-navbar-grey focus:ring-offset-2", style: "white-space: normal;" %>
         </div>
 
       <% end %>

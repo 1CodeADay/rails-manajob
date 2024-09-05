@@ -1,9 +1,0 @@
- <select name="items" id="swal-select" data-action="change->measurement#selected">
-        <% Item.all.each do |item| %>
-          <option value="<%= item.id %>"><%= "#{item.title} - #{item.fabric}" %></option>
-        <% end %>
-      </select>
-
-
-
-      <button data-action="click->measurement#showOrderForm"  class="hidden"> Procees to order creation </button>
