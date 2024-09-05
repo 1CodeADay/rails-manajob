@@ -10,6 +10,14 @@
         <%= simple_form_for Item.new do |f|  %>
           <div class="form-inputs space-y-4 flex justify-center items-start gap-4">
             <div >
+                <select name="client" >
+                  <% Client.all.each do |client| %>
+                    <option value="<%= client.id %>"><%= "#{client.first_name} - #{client.last_name}" %></option>
+                  <% end %>
+                </select>
+
+                <input type="date" name="deadline" />
+
                 <%= f.input :title,
                             required: true,
                             autofocus: true,
@@ -18,13 +26,7 @@
                             input_html: { autocomplete: "first_name", class: "w-80 px-4 py-2 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
                             label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
 
-                <%= f.input :fabric,
-                            required: true,
-                            autofocus: true,
-                            placeholder: "Fabric",
-                            as: :file,
-                            input_html: { autocomplete: "first_name", class: "w-80 px-4 py-2 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
-                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+
 
                 <%= f.input :specifications,
                             required: true,
@@ -61,6 +63,13 @@
                             autofocus: true,
                             label: false,
                             placeholder: "Balance",
+                            input_html: { autocomplete: "first_name", class: "w-80 px-4 py-2 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
+                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+                              <%= f.input :fabric,
+                            required: true,
+                            autofocus: true,
+                            placeholder: "Fabric",
+                            as: :file,
                             input_html: { autocomplete: "first_name", class: "w-80 px-4 py-2 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
                             label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
 
