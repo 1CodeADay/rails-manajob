@@ -52,23 +52,23 @@ clients.each do |client_data|
 
   items.each do |item_data|
     item = Item.create!(item_data)
-    ItemCart.create!(status: "In Progress", deadline: Date.today + 21.days, order: order, item: item)
+    ItemCart.create!(status: "In Progress", deadline: Date.today + [2,3,4,5,6,9,12,14,15].sample.days, order: order, item: item)
 
     # Create measurements for each item
     measurements = [
-      { title: "Chest", dimensions: "#{rand(36..44).to_f}", item: item },
-      { title: "Waist", dimensions: "#{rand(36..44).to_f}" , item: item },
-      { title: "Length", dimensions: "#{rand(36..44).to_f}" , item: item },
-      { title: "Shoulder", dimensions: "#{rand(16..22).to_f}", item: item },
-      { title: "Hip", dimensions: "#{rand(36..44).to_f}", item: item },
-      { title: "Sleeve Length", dimensions: "#{rand(22..28).to_f}", item: item },
-      { title: "Neck", dimensions: "#{rand(14..18).to_f}", item: item },
-      { title: "Thigh", dimensions: "#{rand(20..26).to_f}", item: item },
-      { title: "Inseam", dimensions: "#{rand(30..36).to_f}", item: item },
-      { title: "Armhole", dimensions: "#{rand(18..24).to_f}", item: item },
-      { title: "Cuff", dimensions: "#{rand(8..12).to_f}", item: item },
-      { title: "Rise", dimensions: "#{rand(8..14).to_f}", item: item },
-      { title: "Knee", dimensions: "#{rand(14..18).to_f}", item: item },
+      { title: "Chest", dimensions: "#{rand(36..44).to_f}", client: client },
+      { title: "Waist", dimensions: "#{rand(36..44).to_f}" , client: client },
+      { title: "Length", dimensions: "#{rand(36..44).to_f}" , client: client },
+      { title: "Shoulder", dimensions: "#{rand(16..22).to_f}", client: client },
+      { title: "Hip", dimensions: "#{rand(36..44).to_f}", client: client },
+      { title: "Sleeve Length", dimensions: "#{rand(22..28).to_f}", client: client },
+      { title: "Neck", dimensions: "#{rand(14..18).to_f}", client: client },
+      { title: "Thigh", dimensions: "#{rand(20..26).to_f}", client: client },
+      { title: "Inseam", dimensions: "#{rand(30..36).to_f}", client: client },
+      { title: "Armhole", dimensions: "#{rand(18..24).to_f}", client: client },
+      { title: "Cuff", dimensions: "#{rand(8..12).to_f}", client: client },
+      { title: "Rise", dimensions: "#{rand(8..14).to_f}", client: client },
+      { title: "Knee", dimensions: "#{rand(14..18).to_f}", client: client },
     ]
 
     measurements.each do |measurement_data|

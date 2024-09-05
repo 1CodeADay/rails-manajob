@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :clients
 
   resources :orders
+  resources :items
+  resources :item_measurements
 
   resources :item_carts
 
