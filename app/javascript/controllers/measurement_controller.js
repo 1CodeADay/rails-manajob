@@ -26,7 +26,7 @@ export default class extends Controller {
 
     if (formValues) {
       console.log(JSON.stringify(formValues))
-     const response = await fetch("/item_measurements", {
+      const response = await fetch("/item_measurements", {
         method: "POST",
         headers: {
           "Accept": "application/json",

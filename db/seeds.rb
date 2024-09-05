@@ -14,21 +14,45 @@ user = User.create!(
   # In a real scenario, use Devise to encrypt passwords
 )
 
-# Create clients
-clients = [
-  { first_name: "John", last_name: "Doe", phone_number: "1234567890", address: "Casablanca maroc" },
-  { first_name: "Jane", last_name: "Smith", phone_number: "0987654321", address: "Ain sebaa maroc" },
-  { first_name: "Bob", last_name: "Brown", phone_number: "1122334455", address: "Dakhla maroc" },
-  { first_name: "John", last_name: "Doe", phone_number: "1234567890", address: "Tanger maroc" },
-  { first_name: "Jane", last_name: "Smith", phone_number: "0987654321", address: "Mohamedia maroc" },
-  { first_name: "Bob", last_name: "Brown", phone_number: "1122334455", address: "Safi maroc" },
-  { first_name: "John", last_name: "Doe", phone_number: "1234567890", address: "el jadida maroc" },
-  { first_name: "Jane", last_name: "Smith", phone_number: "0987654321", address: "sale maroc" },
-  { first_name: "Bob", last_name: "Brown", phone_number: "1122334455", address: "kenitra maroc" }
+# Image URLs for clients
+image_urls = [
+  "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
+
+  "https://plus.unsplash.com/premium_photo-1710911198710-3097c518f0e1?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
+  "https://images.unsplash.com/photo-1517630800677-932d836ab680?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+  "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
+
+  "https://plus.unsplash.com/premium_photo-1710911198710-3097c518f0e1?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
+  "https://images.unsplash.com/photo-1517630800677-932d836ab680?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+  "https://images.unsplash.com/photo-1534308143481-c55f00be8bd7?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D"
 ]
 
-clients.each do |client_data|
+clients = [
+  { first_name: "Ahmed", last_name: "El Mansouri", phone_number: "0661122334", address: "Rue Al Atlas, Casablanca Maroc" },
+  { first_name: "Fatima", last_name: "Benjelloun", phone_number: "0665566778", address: "Avenue Hassan II, Rabat Maroc" },
+  { first_name: "Mohamed", last_name: "Alaoui", phone_number: "0655443322", address: "Boulevard Mohammed V, Marrakech Maroc" },
+  { first_name: "Sara", last_name: "El Fassi", phone_number: "0642233445", address: "Quartier Souissi, Rabat Maroc Maroc" },
+  { first_name: "Khalid", last_name: "Bakkali", phone_number: "0677788990", address: "Quartier Maârif, Casablanca Maroc" },
+  { first_name: "Naima", last_name: "Zahraoui", phone_number: "0633445566", address: "Avenue Lalla Yacout, Fès Maroc" },
+  { first_name: "Yassine", last_name: "El Idrissi", phone_number: "0688221144", address: "Boulevard Hassan II, Tanger Maroc" },
+  { first_name: "Laila", last_name: "Ouazzani", phone_number: "0612334455", address: "Route de Safi, El Jadida Maroc" },
+  { first_name: "Hicham", last_name: "Taleb", phone_number: "0655123446", address: "Quartier Souk, Oujda Maroc" }
+]
+
+clients.each_with_index do |client_data, index|
   client = Client.create!(client_data)
+
+  # Open the image file from the corresponding URL
+  image_url = image_urls[index] # Each client gets a unique image
+  file = URI.parse(image_url).open
+
+  # Attach the photo to the client
+  client.photo.attach(io: file, filename: "client_#{index + 1}.png", content_type: "image/png")
+
+  # Save the client with the attached image
+  client.save
 
   # Create an order for each client
   order = Order.create!(status: "Pending", user: user, client: client)
@@ -49,12 +73,7 @@ clients.each do |client_data|
     { title: "Blouse", fabric: "Linen", specifications: "Pink, regular fit", item_type: "Blouse", price: 70.0, deposit: 25.0, balance: 45.0 },
     { title: "Pants", fabric: "Denim", specifications: "Blue, relaxed fit", item_type: "Pants", price: 120.0, deposit: 50.0, balance: 70.0 },
   ]
-
-  items.each do |item_data|
-    item = Item.create!(item_data)
-    ItemCart.create!(status: "In Progress", deadline: Date.today + [2,3,4,5,6,9,12,14,15].sample.days, order: order, item: item)
-
-    # Create measurements for each item
+  # Create measurements for each item
     measurements = [
       { title: "Chest", dimensions: "#{rand(36..44).to_f}", client: client },
       { title: "Waist", dimensions: "#{rand(36..44).to_f}" , client: client },
@@ -74,6 +93,10 @@ clients.each do |client_data|
     measurements.each do |measurement_data|
       ItemMeasurement.create!(measurement_data)
     end
+  items.each do |item_data|
+    item = Item.create!(item_data)
+    ItemCart.create!(status: "In Progress", deadline: Date.today + [2,3,4,5,6,9,12,14,15].sample.days, order: order, item: item)
+
   end
 end
 
