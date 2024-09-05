@@ -67,10 +67,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_03_163934) do
   create_table "item_measurements", force: :cascade do |t|
     t.string "title"
     t.string "dimensions"
-    t.bigint "item_id", null: false
+    t.bigint "client_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_item_measurements_on_item_id"
+    t.index ["client_id"], name: "index_item_measurements_on_client_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -111,7 +111,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_03_163934) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "item_carts", "items"
   add_foreign_key "item_carts", "orders"
-  add_foreign_key "item_measurements", "items"
+  add_foreign_key "item_measurements", "clients"
   add_foreign_key "orders", "clients"
   add_foreign_key "orders", "users"
 end

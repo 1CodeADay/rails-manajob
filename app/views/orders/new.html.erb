@@ -1,0 +1,86 @@
+<div class="flex w-full h-screen">
+
+  <%= render "shared/sidebar" %>
+  <div class=" flex flex-col flex-grow h-screen bg-gold justify-center items-center" id="client-new">
+    <div class="mt-[-60px] max-w-md border border-r-gray-500 shadow-lg bg-slate-400 bg-opacity-40 rounded-lg px-20 py-10">
+    <!-- Added margin-top class -->
+      <h2 class=" font-bold pb-10 text-2xl">Create a new order</h2>
+
+      <div data-measurement-target="orderform">
+        <%= simple_form_for Item.new do |f|  %>
+          <div class="form-inputs space-y-4 flex justify-center items-start gap-4">
+            <div >
+                <select name="client" >
+                  <% Client.all.each do |client| %>
+                    <option value="<%= client.id %>"><%= "#{client.first_name} - #{client.last_name}" %></option>
+                  <% end %>
+                </select>
+
+                <input type="date" name="deadline" />
+
+                <%= f.input :title,
+                            required: true,
+                            autofocus: true,
+                            label: false,
+                            placeholder: "Title",
+                            input_html: { autocomplete: "first_name", class: "w-80 px-4 py-2 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
+                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+
+
+
+                <%= f.input :specifications,
+                            required: true,
+                            autofocus: true,
+                              label: false,
+                            placeholder: "Specifications",
+                            input_html: { autocomplete: "first_name", class: "w-80 px-4 py-2 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
+                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+                <%= f.input :item_type,
+                            required: true,
+                            autofocus: true,
+                              label: false,
+                            placeholder: "Type",
+                            input_html: { autocomplete: "first_name", class: "w-80 px-4 py-2 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
+                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+            </div>
+            <div>
+                <%= f.input :price,
+                            required: true,
+                            autofocus: true,
+                              label: false,
+                            placeholder: "Price",
+                            input_html: { autocomplete: "first_name", class: "w-80 px-4 py-2 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
+                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+                <%= f.input :deposit,
+                            required: true,
+                            autofocus: true,
+                            label: false,
+                            placeholder: "Deposit",
+                            input_html: { autocomplete: "first_name", class: "w-80 px-4 py-2 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
+                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+                <%= f.input :balance,
+                            required: true,
+                            autofocus: true,
+                            label: false,
+                            placeholder: "Balance",
+                            input_html: { autocomplete: "first_name", class: "w-80 px-4 py-2 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
+                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+                              <%= f.input :fabric,
+                            required: true,
+                            autofocus: true,
+                            placeholder: "Fabric",
+                            as: :file,
+                            input_html: { autocomplete: "first_name", class: "w-80 px-4 py-2 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
+                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+
+            </div>
+          </div>
+          <div class="form-actions mt-4">
+            <%= f.button :submit, "Create item", class: "w-full mb-4 px-4 py-2 bg-navbar-grey text-gold rounded-md hover:bg-gold hover:text-white focus:outline-none focus:ring-2 focus:ring-navbar-grey focus:ring-offset-2", style: "white-space: normal;" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>

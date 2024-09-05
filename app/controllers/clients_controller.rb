@@ -9,7 +9,8 @@ class ClientsController < ApplicationController
       {
         lat: client.latitude,
         lng: client.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {client: client})
+        info_window_html: render_to_string(partial: "info_window", locals: {client: client}),
+        marker_html: render_to_string(partial: "marker", locals: {client: client})
 
       }
     end
@@ -30,6 +31,9 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @client = Client.find(params[:id])
+    # client measurements
+    @measurements = ItemMeasurement.where(client_id: @client.id)
   end
 
   def update

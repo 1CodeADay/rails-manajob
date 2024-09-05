@@ -1,0 +1,8 @@
+
+<%= (client.orders.last&.item_carts&.first&.deadline&.to_date - Date.today).to_i  %>
+<% is_deadline_close =(client.orders.last&.item_carts&.first&.deadline&.to_date - Date.today).to_i < 7 %>
+<div class="relative ">
+  <%= image_tag "pin.png", height: 30, width: 30, alt: "Logo" %>
+  <%= image_tag "logo.png", height: 30, width: 30, alt: "Logo",class: "absolute top-[-2px] left-[1px] rounded-full border-2 #{ is_deadline_close ? 'border-red-500' : 'border-green-500' }" %>
+
+</div>
