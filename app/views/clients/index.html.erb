@@ -1,41 +1,39 @@
-<div id="indexclients">
-  <div class="flex w-full  h-screen">
-    <%= render "shared/sidebar" %>
-    <div class="flex h-screen bg-white ">
-      <div class="flex flex-col overflow-scroll w-96 h-screen p-6">
-        <% @clients.each do |client| %>
-          <div class="client-item min-h-52">
-            <a href="/clients/<%= client.id %>" class="client-item-link py-4">
-              <div class="client-item-corner"></div>
+<div class="flex w-full  h-screen">
+  <%= render "shared/sidebar" %>
+  <div class="flex h-screen bg-white "id="client-index">
+    <div class="flex flex-col overflow-scroll w-96 h-screen p-6">
+      <% @clients.each do |client| %>
+        <div class="client-item min-h-52">
+          <a href="/clients/<%= client.id %>" class="client-item-link py-4">
+            <div class="client-item-corner"></div>
 
-              <div class="client-item-title flex justify-evenly items-center">
-                <%= cl_image_tag client.photo.key, height: 300, width: 400, crop: :fill, class: "rounded-full w-10 h-10 object-cover" if client.photo.key.present? %>
+            <div class="client-item-title flex justify-evenly items-center">
+              <%= cl_image_tag client.photo.key, height: 300, width: 400, crop: :fill, class: "rounded-full w-10 h-10 object-cover" if client.photo.key.present? %>
 
-                <div class="client-item-info">
-                  <span class="client-item-info-sp"><%= client.first_name %></span>
-                </div>
-
-                <div class="client-item-info">
-                  <span class="client-item-info-sp"><%= client.last_name %></span>
-                </div>
+              <div class="client-item-info">
+                <span class="client-item-info-sp"><%= client.first_name %></span>
               </div>
 
-              <div class="client-item-info">Phone number :
-                <span class="client-item-info-sp"><%= client.phone_number %></span>
+              <div class="client-item-info">
+                <span class="client-item-info-sp"><%= client.last_name %></span>
               </div>
-              <div class="client-item-info">Address :
-                <span class="client-item-info-sp"><%= client.address %></span>
-              </div>
-            </a>
-          </div>
-        <% end %>
-      </div>
+            </div>
+
+            <div class="client-item-info">Phone number :
+              <span class="client-item-info-sp"><%= client.phone_number %></span>
+            </div>
+            <div class="client-item-info">Address :
+              <span class="client-item-info-sp"><%= client.address %></span>
+            </div>
+          </a>
+        </div>
+      <% end %>
     </div>
-    <div class="flex-grow w-full">
-      <div style="width: 100%; height: 100%;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    </div>
+  </div>
+  <div class="flex-grow w-full">
+    <div style="width: 100%; height: 100%;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </div>

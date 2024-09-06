@@ -7,7 +7,6 @@ class CreateItems < ActiveRecord::Migration[7.1]
       t.string :item_type
       t.float :price
       t.float :deposit
-      t.float :balance
 
       t.timestamps
     end

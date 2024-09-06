@@ -1,6 +1,6 @@
 <div class="flex w-full h-screen ">
   <%= render "shared/sidebar", class: "h-full"%>
-  <div  data-controller="datatable" class="flex-grow h-full overflow-auto">
+  <div  data-controller="datatable" class="flex-grow h-full overflow-auto" id="order-index">
     <table id="orders" class="display">
       <thead class="bg-gold">
         <tr>
@@ -19,13 +19,13 @@
         <% @orders.each do |order| %>
           <tr>
             <td><%= order.id%></td>
-            <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
+            <td><%= order.created_at.strftime("%Y-%m-%d") %></td>
             <td><%= order.client.first_name %> <%= order.client.last_name %></td>
             <td><%= order.items.count %> </td>
             <td><%= order.status %> </td>
             <td><%= order.items.sum(:price) %> </td>
             <td><%= order.items.sum(:deposit)%> </td>
-            <td><%= order.items.sum(:balance)%> </td>
+            <td><%= order.items.sum(:price) - order.items.sum(:deposit)%> </td>
             <td><%= order.item_carts.first.deadline%> </td>
           </tr>
         <% end %>

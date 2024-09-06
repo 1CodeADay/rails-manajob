@@ -80,7 +80,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_03_163934) do
     t.string "item_type"
     t.float "price"
     t.float "deposit"
-    t.float "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
