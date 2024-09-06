@@ -8,5 +8,6 @@ class PagesController < ApplicationController
   end
 
   def catalogue
+    @clients = Client.all
   end
 end

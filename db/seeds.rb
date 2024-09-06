@@ -14,6 +14,38 @@ user = User.create!(
   # In a real scenario, use Devise to encrypt passwords
 )
 
+
+extra_image_urls = [
+  ["https://unsplash.com/photos/a-woman-wearing-red-glasses-and-a-colorful-sweater-5VxCyV0Cf6o",
+    "https://images.unsplash.com/photo-1505022610485-0249ba5b3675?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGZhc2hpb258ZW58MHwwfDB8fHww",
+    "https://images.unsplash.com/photo-1493146146946-e907f69cdf23?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D"],
+  ["https://plus.unsplash.com/premium_photo-1674777843430-3c0413584110?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8",
+    "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFzaGlvbnxlbnwwfDB8MHx8fDA%3D",
+    "https://plus.unsplash.com/premium_photo-1695575593603-1f42ca27bb6d?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZhc2hpb258ZW58MHwwfDB8fHww"],
+    ["https://plus.unsplash.com/premium_photo-1689327920656-bcfe8a9709fa?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHx8",
+      "https://images.unsplash.com/photo-1551489186-ccb95a1ea6a3?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGZhc2hpb258ZW58MHwwfDB8fHww",
+      "https://images.unsplash.com/flagged/photo-1553802922-2eb2f7f2c65b?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fGZhc2hpb258ZW58MHwwfDB8fHww"],
+    ["https://unsplash.com/photos/a-woman-wearing-red-glasses-and-a-colorful-sweater-5VxCyV0Cf6o",
+    "https://images.unsplash.com/photo-1505022610485-0249ba5b3675?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGZhc2hpb258ZW58MHwwfDB8fHww",
+    "https://images.unsplash.com/photo-1493146146946-e907f69cdf23?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D"],
+    ["https://plus.unsplash.com/premium_photo-1674777843430-3c0413584110?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8",
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFzaGlvbnxlbnwwfDB8MHx8fDA%3D",
+      "https://plus.unsplash.com/premium_photo-1695575593603-1f42ca27bb6d?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZhc2hpb258ZW58MHwwfDB8fHww"],
+    ["https://plus.unsplash.com/premium_photo-1689327920656-bcfe8a9709fa?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHx8",
+      "https://images.unsplash.com/photo-1551489186-ccb95a1ea6a3?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGZhc2hpb258ZW58MHwwfDB8fHww",
+      "https://images.unsplash.com/flagged/photo-1553802922-2eb2f7f2c65b?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fGZhc2hpb258ZW58MHwwfDB8fHww"],
+    ["https://unsplash.com/photos/a-woman-wearing-red-glasses-and-a-colorful-sweater-5VxCyV0Cf6o",
+    "https://images.unsplash.com/photo-1505022610485-0249ba5b3675?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGZhc2hpb258ZW58MHwwfDB8fHww",
+    "https://images.unsplash.com/photo-1493146146946-e907f69cdf23?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D"],
+    ["https://plus.unsplash.com/premium_photo-1674777843430-3c0413584110?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8",
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFzaGlvbnxlbnwwfDB8MHx8fDA%3D",
+      "https://plus.unsplash.com/premium_photo-1695575593603-1f42ca27bb6d?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZhc2hpb258ZW58MHwwfDB8fHww"],
+    ["https://plus.unsplash.com/premium_photo-1689327920656-bcfe8a9709fa?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHx8",
+      "https://images.unsplash.com/photo-1551489186-ccb95a1ea6a3?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGZhc2hpb258ZW58MHwwfDB8fHww",
+      "https://images.unsplash.com/flagged/photo-1553802922-2eb2f7f2c65b?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fGZhc2hpb258ZW58MHwwfDB8fHww"]
+]
+
+
 # Image URLs for clients
 image_urls = [
   "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -51,6 +83,11 @@ clients.each_with_index do |client_data, index|
   # Attach the photo to the client
   client.photo.attach(io: file, filename: "client_#{index + 1}.png", content_type: "image/png")
 
+  extra_image_urls[index].each_with_index do |url, img_index|
+    file = URI.parse(url).open
+    client.pictures.attach(io: file, filename: "client_#{index + 1}_extra_#{img_index + 1}.png", content_type: "image/png")
+  end
+
   # Save the client with the attached image
   client.save
 
@@ -59,19 +96,13 @@ clients.each_with_index do |client_data, index|
 
   # Create items with measurements for each client
   items = [
-    { title: "Shirt 1", fabric: "Cotton", specifications: "Blue, slim fit", item_type: "Shirt", price: 50.0, deposit: 20.0},
-    { title: "Shirt 2", fabric: "Linen", specifications: "White, regular fit", item_type: "Shirt", price: 60.0, deposit: 25.0},
-    { title: "Trousers", fabric: "Wool", specifications: "Black, straight fit", item_type: "Trousers", price: 80.0, deposit: 30.0},
-    { title: "Jacket", fabric: "Wool", specifications: "Navy, slim fit", item_type: "Jacket", price: 150.0, deposit: 60.0},
-    { title: "Blazer", fabric: "Linen", specifications: "Beige, relaxed fit", item_type: "Blazer", price: 180.0, deposit: 70.0},
-    { title: "Trousers", fabric: "Cotton", specifications: "Black, straight fit", item_type: "Trousers", price: 100.0, deposit: 40.0},
-    { title: "Shirt", fabric: "Silk", specifications: "White, regular fit", item_type: "Shirt", price: 80.0, deposit: 30.0},
-    { title: "Overcoat", fabric: "Wool", specifications: "Gray, double-breasted", item_type: "Overcoat", price: 250.0, deposit: 100.0},
-    { title: "Vest", fabric: "Polyester", specifications: "Navy, tailored fit", item_type: "Vest", price: 70.0, deposit: 25.0},
-    { title: "Dress", fabric: "Silk", specifications: "Red, A-line", item_type: "Dress", price: 220.0, deposit: 85.0},
-    { title: "Skirt", fabric: "Cotton", specifications: "Black, pencil fit", item_type: "Skirt", price: 90.0, deposit: 35.0},
-    { title: "Blouse", fabric: "Linen", specifications: "Pink, regular fit", item_type: "Blouse", price: 70.0, deposit: 25.0},
-    { title: "Pants", fabric: "Denim", specifications: "Blue, relaxed fit", item_type: "Pants", price: 120.0, deposit: 50.0},
+    { title: "Shirt 1", fabric: "Cotton", specifications: "Blue, slim fit", item_type: "Shirt", price: 50.0, deposit: 20.0, expenses: 10.0},
+    { title: "Shirt 2", fabric: "Linen", specifications: "White, regular fit", item_type: "Shirt", price: 60.0, deposit: 25.0, expenses: 25.0},
+    { title: "Trousers", fabric: "Wool", specifications: "Black, straight fit", item_type: "Trousers", price: 80.0, deposit: 30.0, expenses: 45.0},
+    { title: "Jacket", fabric: "Wool", specifications: "Navy, slim fit", item_type: "Jacket", price: 150.0, deposit: 60.0, expenses: 75.0},
+    { title: "Blazer", fabric: "Linen", specifications: "Beige, relaxed fit", item_type: "Blazer", price: 180.0, deposit: 70.0, expenses: 105.0},
+    { title: "Trousers", fabric: "Cotton", specifications: "Black, straight fit", item_type: "Trousers", price: 100.0, deposit: 40.0, expenses: 15.0},
+
   ]
   # Create measurements for each item
     measurements = [
@@ -81,13 +112,6 @@ clients.each_with_index do |client_data, index|
       { title: "Shoulder", dimensions: "#{rand(16..22).to_f}", client: client },
       { title: "Hip", dimensions: "#{rand(36..44).to_f}", client: client },
       { title: "Sleeve Length", dimensions: "#{rand(22..28).to_f}", client: client },
-      { title: "Neck", dimensions: "#{rand(14..18).to_f}", client: client },
-      { title: "Thigh", dimensions: "#{rand(20..26).to_f}", client: client },
-      { title: "Inseam", dimensions: "#{rand(30..36).to_f}", client: client },
-      { title: "Armhole", dimensions: "#{rand(18..24).to_f}", client: client },
-      { title: "Cuff", dimensions: "#{rand(8..12).to_f}", client: client },
-      { title: "Rise", dimensions: "#{rand(8..14).to_f}", client: client },
-      { title: "Knee", dimensions: "#{rand(14..18).to_f}", client: client },
     ]
 
     measurements.each do |measurement_data|
