@@ -67,6 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_03_163934) do
   create_table "item_measurements", force: :cascade do |t|
     t.string "title"
     t.string "dimensions"
+    t.string "item_type"
     t.bigint "client_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -80,6 +81,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_03_163934) do
     t.string "item_type"
     t.float "price"
     t.float "deposit"
+    t.float "expenses"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

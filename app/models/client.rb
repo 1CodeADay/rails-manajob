@@ -2,6 +2,7 @@ class Client < ApplicationRecord
   has_many :orders
   has_many :users, through: :orders # This is a join table
   has_one_attached :photo
+  has_many_attached :pictures
   has_many :item_measurements
 
 
