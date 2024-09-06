@@ -1,4 +1,4 @@
-<div class="flex flex-col h-full w-52 px-4 py-8 bg-navbar-grey border-t-2 border-gold hover:border-white">
+<div class="flex flex-col h-full w-52 px-4 py-8 bg-navbar-grey border-y-4 border-r-4 border-gold">
   <h2 class="text-3xl font-semibold text-gold hover:text-white text-center">Manajob</h2>
 
   <div class="relative mt-6">
@@ -10,7 +10,7 @@
     <input type="text" class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white focus:border-none rounded-md focus:ring-gold focus:outline-none focus:ring-2" placeholder="Search"></input>
   </div>
 
-  <div class="flex flex-col justify-between flex-1 mt-6">
+  <div class="flex flex-col justify-between flex-1 mt-5">
     <nav>
       <a class="flex items-center px-4 py-2 text-gold bg-navbar-grey hover:bg-gold hover:text-white hover:ring-2 ring-white rounded-md " href="/dashboard">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -20,26 +20,53 @@
         <span class="mx-4 font-medium">Dashboard</span>
       </a>
 
-      <a class="flex items-center px-4 py-2 mt-5  text-gold bg-navbar-grey hover:bg-gold hover:text-white hover:ring-2 ring-white rounded-md" href="/clients">
-        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"></path>
-        </svg>
-        <span class="mx-4 font-medium">Clients</span>
-      </a>
+      <div data-controller="client-menu">
+        <button type="button" class="flex items-center w-full px-4 py-2 mt-2 text-gold bg-navbar-grey hover:bg-gold hover:text-white hover:ring-2 ring-white rounded-md" aria-controls="dropdown-clients" data-collapse-toggle="dropdown-clients" data-action="click->client-menu#toggle">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"></path>
+          </svg>
+          <span class="flex-1 mx-4 text-left font-medium">Clients</span>
+          <svg class="w-3 h-3 transform rotate-90 transition-transform duration-300" data-client-menu-target="cchevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+          </svg>
+        </button>
+          <ul id="dropdown-clients" class=" py-1 space-y-1" data-client-menu-target="cmenu">
+              <li>
+                  <a href="/clients/" class="flex items-center w-full px-4 py-2 text-gold bg-navbar-grey hover:bg-gold hover:text-white hover:ring-2 ring-white rounded-md pl-11">Overview</a>
+              </li>
+              <li>
+                  <a href="/clients/new" class="flex items-center w-full px-4 py-2 text-gold bg-navbar-grey hover:bg-gold hover:text-white hover:ring-2 ring-white rounded-md pl-11">Create</a>
+              </li>
+          </ul>
+      </div>
 
-      <a class="flex items-center px-4 py-2 mt-5 text-gold bg-navbar-grey hover:bg-gold hover:text-white hover:ring-2 ring-white rounded-md" href="/orders">
-        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z"></path>
-        </svg>
-        <span class="mx-4 font-medium">Orders</span>
-      </a>
+      <div data-controller="order-menu">
+        <button type="button" class="flex items-center w-full px-4 py-2 mt-2 text-gold bg-navbar-grey hover:bg-gold hover:text-white hover:ring-2 ring-white rounded-md" aria-controls="dropdown-orders" data-collapse-toggle="dropdown-orders" data-action="click->order-menu#toggle">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z"></path>
+          </svg>
+          <span class="flex-1 mx-4 text-left font-medium">Orders</span>
+          <svg class="w-3 h-3 transform rotate-90 transition-transform duration-300" data-order-menu-target="ochevron" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+          </svg>
+        </button>
+          <ul id="dropdown-orders" class=" py-1 space-y-1" data-order-menu-target="omenu">
+              <li>
+                  <a href="/orders/" class="flex items-center w-full px-4 py-2 text-gold bg-navbar-grey hover:bg-gold hover:text-white hover:ring-2 ring-white rounded-md pl-11">Overview</a>
+              </li>
+              <li>
+                  <a href="/orders/new" class="flex items-center w-full px-4 py-2 text-gold bg-navbar-grey hover:bg-gold hover:text-white hover:ring-2 ring-white rounded-md pl-11">Create</a>
+              </li>
+          </ul>
+      </div>
 
-      <a class="flex items-center px-4 py-2 mt-5 text-gold bg-navbar-grey hover:bg-gold hover:text-white hover:ring-2 ring-white rounded-md" href="/catalogue">
+      <a class="flex items-center px-4 py-2 mt-2 text-gold bg-navbar-grey hover:bg-gold hover:text-white hover:ring-2 ring-white rounded-md" href="/catalogue">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"></path>
         </svg>
         <span class="mx-4 font-medium">Catalogue</span>
       </a>
+
     </nav>
   </div>
 </div>

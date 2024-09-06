@@ -1,84 +1,75 @@
 <div class="flex w-full h-screen">
-
   <%= render "shared/sidebar" %>
-  <div class=" flex flex-col flex-grow h-screen bg-gold justify-center items-center" id="client-new">
-    <div class="mt-[-60px] max-w-md border border-r-gray-500 shadow-lg bg-slate-400 bg-opacity-40 rounded-lg px-20 py-10">
+  <div class=" flex flex-grow h-screen bg-gold justify-center items-center " id="order-new">
+    <div class="border border-r-gray-500 bg-slate-400 bg-opacity-40 shadow-xl bg-navbar-grey bg-opacity-50 rounded-lg px-20 py-7">
     <!-- Added margin-top class -->
-      <h2 class=" font-bold pb-10 text-2xl">Create a new order</h2>
+      <h2 class="font-bold pb-8 text-3xl text-center">Create a new order</h2>
 
       <div data-measurement-target="orderform">
         <%= simple_form_for Item.new do |f|  %>
-          <div class="form-inputs space-y-4 flex justify-center items-start gap-4">
-            <div >
-                <select name="client" >
-                  <% Client.all.each do |client| %>
-                    <option value="<%= client.id %>"><%= "#{client.first_name} - #{client.last_name}" %></option>
-                  <% end %>
-                </select>
+          <div class="form-inputs space-y-4 flex justify-center items-start space-x-8 mx-2">
 
-                <input type="date" name="deadline" />
+            <div class="flex flex-col">
+              <select name="client" class="border rounded-md focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none my-2">
+                <% Client.all.each do |client| %>
+                  <option class=""value="<%= client.id %>"><%= "#{client.first_name} - #{client.last_name}" %></option>
+                <% end %>
+              </select>
+              <input type="date" name="deadline" class="border rounded-md focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none my-2" />
 
-                <%= f.input :title,
-                            required: true,
-                            autofocus: true,
-                            label: false,
-                            placeholder: "Title",
-                            input_html: { autocomplete: "first_name", class: "w-80 px-4 py-2 mt-4 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
-                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+              <%= f.input :title,
+                          required: true,
+                          autofocus: true,
+                          label: false,
+                          placeholder: "Title",
+                          input_html: { autocomplete: "title", class: "w-80 px-4 py-2 mt-2 border rounded-md focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" }%>
 
-                <%= f.input :specifications,
-                            required: true,
-                            autofocus: true,
-                              label: false,
-                            placeholder: "Specifications",
-                            input_html: { autocomplete: "first_name", class: "w-80 px-4 py-2 mt-4 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
-                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+              <%= f.input :specifications,
+                          required: true,
+                          autofocus: true,
+                          label: false,
+                          placeholder: "Specifications",
+                          input_html: { autocomplete: "specifications", class: "w-80 px-4 py-2 mt-4 border rounded-md focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none"}%>
 
-                <%= f.input :item_type,
-                            required: true,
-                            autofocus: true,
-                              label: false,
-                            placeholder: "Type",
-                            input_html: { autocomplete: "first_name", class: "w-80 px-4 py-2 mt-4 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
-                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+              <%= f.input :item_type,
+                          required: true,
+                          autofocus: true,
+                          label: false,
+                          placeholder: "Type",
+                          input_html: { autocomplete: "item_type", class: "w-80 px-4 py-2 mt-2 border rounded-md focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none"}%>
+
+              <%= f.input :fabric,
+                          required: true,
+                          autofocus: true,
+                          label: false,
+                          placeholder: "Fabric",
+                          as: :file,
+                          input_html: { autocomplete: "fabric", class: "w-80 px-4 py-2 mt-3 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none"}%>
             </div>
             <div>
-                <%= f.input :price,
-                            required: true,
-                            autofocus: true,
-                              label: false,
-                            placeholder: "Price",
-                            input_html: { autocomplete: "first_name", class: "w-40 px-4 py-2 mt-4 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
-                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8 mx-auto">
+                <path d="M12 7.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" />
+                <path fill-rule="evenodd" d="M1.5 4.875C1.5 3.839 2.34 3 3.375 3h17.25c1.035 0 1.875.84 1.875 1.875v9.75c0 1.036-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 0 1 1.5 14.625v-9.75ZM8.25 9.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM18.75 9a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V9.75a.75.75 0 0 0-.75-.75h-.008ZM4.5 9.75A.75.75 0 0 1 5.25 9h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H5.25a.75.75 0 0 1-.75-.75V9.75Z" clip-rule="evenodd" />
+                <path d="M2.25 18a.75.75 0 0 0 0 1.5c5.4 0 10.63.722 15.6 2.075 1.19.324 2.4-.558 2.4-1.82V18.75a.75.75 0 0 0-.75-.75H2.25Z" />
+              </svg>
 
-                <%= f.input :deposit,
-                            required: true,
-                            autofocus: true,
-                            label: false,
-                            placeholder: "Deposit",
-                            input_html: { autocomplete: "first_name", class: "w-40 px-4 py-2 mt-4 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
-                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
+              <%= f.input :price,
+                          required: true,
+                          autofocus: true,
+                          label: false,
+                          placeholder: "Price",
+                          input_html: { autocomplete: "price", class: "w-32 px-4 py-2 mt-4 border rounded-md focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none"}%>
 
-                <%= f.input :balance,
-                            required: true,
-                            autofocus: true,
-                            label: false,
-                            placeholder: "Balance",
-                            input_html: { autocomplete: "first_name", class: "w-40 px-4 py-2 mt-4 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
-                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
-
-                <%= f.input :fabric,
-                            required: true,
-                            autofocus: true,
-                            placeholder: "Fabric",
-                            as: :file,
-                            input_html: { autocomplete: "first_name", class: "w-40 px-4 py-2 mt-4 border rounded-md  focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none" },
-                            label_html: { class: "block text-sm mb-2 font-medium text-gray-700" } %>
-
+              <%= f.input :deposit,
+                          required: true,
+                          autofocus: true,
+                          label: false,
+                          placeholder: "Deposit",
+                          input_html: { autocomplete: "deposit", class: "w-32 px-4 py-2 mt-4 border rounded-md focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:border-none"}%>
             </div>
           </div>
           <div class="form-actions mt-4">
-            <%= f.button :submit, "Create item", class: "w-full mb-4 px-4 py-2 bg-navbar-grey text-gold rounded-md hover:bg-gold hover:text-white focus:outline-none focus:ring-2 focus:ring-navbar-grey focus:ring-offset-2", style: "white-space: normal;" %>
+            <%= f.button :submit, "Create item", class: "w-full mb-4 px-4 py-2 bg-navbar-grey text-gold rounded-md hover:bg-gold hover:text-white focus:outline-none focus:ring-2 focus:ring-navbar-grey focus:ring-offset-2 hover:ring-white hover:ring-2", style: "white-space: normal;" %>
           </div>
         <% end %>
       </div>
