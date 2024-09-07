@@ -10,6 +10,4 @@ class ItemMeasurementsController < ApplicationController
       end
     end
   end
-
-
 end

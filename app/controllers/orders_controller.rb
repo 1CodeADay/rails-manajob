@@ -17,7 +17,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-   
   end
 
   def update
@@ -35,5 +34,4 @@ class OrdersController < ApplicationController
   def set_order
     @order = Order.find(params[:id])
   end
-
 end
