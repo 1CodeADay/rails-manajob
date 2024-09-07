@@ -1,25 +1,9 @@
 .client-item {
   -ms-flex-preferred-size: calc(33.33333% - 30px);
   flex-basis: calc(33.33333% - 30px);
-  margin: 0 15px 30px;
-  overflow: hidden;
-  border-radius: 28px;
-  box-shadow: 0 0 10px black;
-  background-color: #616161;
 }
 
-.client-item-link {
-  display: block;
-  padding: 30px 20px;
-  overflow: hidden;
-  position: relative;
-  text-decoration: none;
-  height: 100%;
-}
 
-.client-item-link:hover {
-  text-decoration: none;
-}
 .client-item-link:hover,
 .client-item-link:hover .client-item-info-sp {
   color: #FFF;
@@ -41,44 +25,13 @@
   transform: scale(10);
 }
 
-.client-item-title {
-  min-height: 30px;
-  margin: 0 0 10px;
-  overflow: hidden;
-  font-weight: bold;
-  font-size: 30px;
-  color: #FFF;
-  z-index: 2;
-  position: relative;
-}
-
-.client-item-info {
-  font-size: 18px;
-  color: #FFF;
-  z-index: 2;
-  position: relative;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .client-item-info-sp {
-  font-weight: bold;
-  color: #f9b234;
   -webkit-transition: color .5s ease;
   -o-transition: color .5s ease;
   transition: color .5s ease
 }
 
 .client-item-corner {
-  height: 128px;
-  width: 128px;
-  background-color: goldenrod;
-  z-index: 1;
-  position: absolute;
-  top: -75px;
-  right: -75px;
-  border-radius: 50%;
   -webkit-transition: all .5s ease;
   -o-transition: all .5s ease;
   transition: all 1s ease;

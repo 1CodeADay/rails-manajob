@@ -1,0 +1,96 @@
+.client-item {
+  -ms-flex-preferred-size: calc(33.33333% - 30px);
+  flex-basis: calc(33.33333% - 30px);
+}
+
+
+.client-item-link:hover,
+.client-item-link:hover .client-item-info-sp {
+  color: #FFF;
+}
+
+.client-item-link:hover,
+.client-item-link:hover .client-item-info {
+  color: #000000;
+}
+
+.client-item-link:hover,
+.client-item-link:hover .client-item-title {
+  color: #000000;
+}
+
+.client-item-link:hover .client-item-corner {
+  -webkit-transform: scale(10);
+  -ms-transform: scale(10);
+  transform: scale(10);
+}
+
+.client-item-info-sp {
+  -webkit-transition: color .5s ease;
+  -o-transition: color .5s ease;
+  transition: color .5s ease
+}
+
+.client-item-corner {
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all 1s ease;
+}
+
+.client-item:nth-child(2n) .client-item-corner {
+  background-color: #3ecd5e;
+}
+.client-item:nth-child(3n) .client-item-corner {
+  background-color: #e44002;
+}
+.client-item:nth-child(4n) .client-item-corner {
+  background-color: #952aff;
+}
+.client-item:nth-child(5n) .client-item-corner {
+  background-color: #cd3e94;
+}
+.client-item:nth-child(6n) .client-item-corner {
+  background-color: #4c49ea;
+}
+.client-item:nth-child(7n) .client-item-corner {
+  background-color: #00d9ff;
+}
+.client-item:nth-child(8n) .client-item-corner {
+  background-color: #5fd400;
+}
+.client-item:nth-child(9n) .client-item-corner {
+  background-color: #f93490;
+}
+
+@media only screen and (max-width: 979px) {
+  .client-item {
+    -ms-flex-preferred-size: calc(50% - 30px);
+    flex-basis: calc(50% - 30px);
+  }
+  .client-item-title {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .client-container {
+    width: 96%;
+  }
+}
+@media only screen and (max-width: 639px) {
+  .client-item {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+  .client-item-title {
+    min-height: 72px;
+    line-height: 1;
+    font-size: 24px;
+  }
+  .client-item-link {
+    padding: 22px 40px;
+  }
+  .client-item-info {
+    font-size: 16px;
+  }
+}

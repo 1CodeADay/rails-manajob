@@ -3,28 +3,31 @@
   <div class="flex h-screen bg-white "id="client-index">
     <div class="flex flex-col overflow-scroll w-96 h-screen p-6">
       <% @clients.each do |client| %>
-        <div class="client-item min-h-52">
-          <a href="/clients/<%= client.id %>" class="client-item-link py-4">
-            <div class="client-item-corner"></div>
+        <div class="client-item overflow-hidden rounded-3xl drop-shadow-2xl bg-black mx-4 mb-8 bg-opacity-60 min-h-52">
+          <a href="/clients/<%= client.id %>" class="client-item-link py-3 h-full hover:no-underline no-underline relative overflow-hidden p-5 block">
+            <div class="client-item-corner h-32 w-32 bg-gold z-[1] absolute -top-[75px] -right-[75px] rounded-full"></div>
 
-            <div class="client-item-title flex justify-evenly items-center">
-              <%= cl_image_tag client.photo.key, height: 300, width: 400, crop: :fill, class: "rounded-full w-10 h-10 object-cover" if client.photo.key.present? %>
-
-              <div class="client-item-info">
-                <span class="client-item-info-sp"><%= client.first_name %></span>
+            <div class="client-item-title flex space-x-7 items-start relative z-[2] text-white text-3xl font-bold overflow-hidden min-h-4 mb-2 ">
+              <%= cl_image_tag client.photo.key, height: 250, width: 300, crop: :fill, class: "rounded-full w-16 h-16 object-cover" if client.photo.key.present? %>
+              <div class="mt-1">
+                <div class="client-item-info text-lg text-white z-[2] relative whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                  <span class="client-item-info-sp font-bold text-gold "><%= client.first_name %></span>
+                </div>
+                <div class="client-item-info text-lg text-white z-[2] relative whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                  <span class="client-item-info-sp font-bold text-gold "><%= client.last_name %></span>
+                </div>
               </div>
-
-              <div class="client-item-info">
-                <span class="client-item-info-sp"><%= client.last_name %></span>
-              </div>
             </div>
 
-            <div class="client-item-info">Phone number :
-              <span class="client-item-info-sp"><%= client.phone_number %></span>
+
+            <div class="client-item-info text-lg text-white z-[2] relative whitespace-nowrap overflow-hidden text-ellipsis">Phone number :<br>
+              <span class="client-item-info-sp font-bold text-gold "><%= client.phone_number %></span>
             </div>
-            <div class="client-item-info">Address :
-              <span class="client-item-info-sp"><%= client.address %></span>
+
+            <div class="client-item-info text-lg text-white z-[2] relative whitespace-nowrap overflow-hidden text-ellipsis">Address :<br>
+              <span class="client-item-info-sp font-bold text-gold "><%= client.address %></span>
             </div>
+
           </a>
         </div>
       <% end %>
