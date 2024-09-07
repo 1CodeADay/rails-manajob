@@ -106,12 +106,12 @@ clients.each_with_index do |client_data, index|
   ]
   # Create measurements for each item
     measurements = [
-      { title: "Chest", dimensions: "#{rand(36..44).to_f}", client: client },
-      { title: "Waist", dimensions: "#{rand(36..44).to_f}" , client: client },
-      { title: "Length", dimensions: "#{rand(36..44).to_f}" , client: client },
-      { title: "Shoulder", dimensions: "#{rand(16..22).to_f}", client: client },
-      { title: "Hip", dimensions: "#{rand(36..44).to_f}", client: client },
-      { title: "Sleeve Length", dimensions: "#{rand(22..28).to_f}", client: client },
+      { item_type: "Shirt", title: "Chest", dimensions: "#{rand(36..44).to_f}", client: client },
+      { item_type: "Shirt", title: "Waist", dimensions: "#{rand(36..44).to_f}" , client: client },
+      { item_type: "Shirt", title: "Length", dimensions: "#{rand(36..44).to_f}" , client: client },
+      { item_type: "Shirt", title: "Shoulder", dimensions: "#{rand(16..22).to_f}", client: client },
+      { item_type: "Shirt", title: "Hip", dimensions: "#{rand(36..44).to_f}", client: client },
+      { item_type: "Shirt", title: "Sleeve Length", dimensions: "#{rand(22..28).to_f}", client: client },
     ]
 
     measurements.each do |measurement_data|
