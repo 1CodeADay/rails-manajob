@@ -1,1 +1,2 @@
-web: sh -c 'bin/rails server &&  bin/rails tailwindcss:watch '
+web: bin/rails server
+css: bin/rails tailwindcss:watch
