@@ -5,6 +5,18 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @clients = Client.all
+
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @clients.geocoded.map do |client|
+      {
+        lat: client.latitude,
+        lng: client.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {client: client}),
+        marker_html: render_to_string(partial: "marker", locals: {client: client})
+
+      }
+    end
   end
 
   def catalogue
