@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    
   end
 
   def create
@@ -33,5 +34,9 @@ class OrdersController < ApplicationController
 
   def set_order
     @order = Order.find(params[:id])
+  end
+
+  def order_params
+    params.require(:order).permit(:status)
   end
 end
