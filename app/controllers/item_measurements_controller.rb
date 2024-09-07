@@ -3,7 +3,7 @@ class ItemMeasurementsController < ApplicationController
 
 
   def create
-    item = ItemMeasurement.new(title: params["title"], dimensions: params["dimension"], client_id: params["clientId"])
+    item = ItemMeasurement.new(item_type: params["type"], title: params["title"], dimensions: params["dimension"], client_id: params["clientId"])
     respond_to do |format|
       if item.save
         format.json # Follows the classic Rails flow and look for a create.json view
