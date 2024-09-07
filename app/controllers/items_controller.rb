@@ -22,9 +22,11 @@ class ItemsController < ApplicationController
     end
   end
 
+
+
   private
 
   def item_params
-    params.require(:item).permit(:title, :fabric, :specifications, :item_type, :price, :deposit, :balance)
+    params.require(:item).permit(:title, :fabric, :specifications, :item_type, :price, :deposit, :expenses)
   end
 end
