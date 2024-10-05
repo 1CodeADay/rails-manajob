@@ -3,13 +3,14 @@
 <div class="flex w-full  h-screen"  data-controller="measurement">
   <%= render "shared/sidebar" %>
   <div class="flex-grow h-screen bg-white">
-    <div class="flex flex-wrap overflow-y-scroll w-full h-screen p-6">
+    <div class="flex flex-wrap overflow-y-scroll w-full h-500 p-2">
       <% @clients.each do |client| %>
-        <div class="client-item min-h-52 min-w-48 border-4 border-gray-700 rounded-md">
+        <div class="client-item min-h-52 min-w-48 border-4 border-gray-700 rounded-md m-2">
           <div class="flex justify-center items-center gap-3 p-4 bg-gold">
             <%= cl_image_tag client.photo.key, height: 300, width: 400, crop: :fill, class: "rounded-full w-10 h-10 object-cover" if client.photo.key.present? %>
             <span class="client-item-info-sp"><%= client.first_name %></span>
             <span class="client-item-info-sp"><%= client.last_name %></span>
+            <%= render "form", client: client  %>
           </div>
           <% if client.pictures.present? %>
             <%= render "carousel", client: client %>

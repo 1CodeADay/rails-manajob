@@ -54,6 +54,7 @@ gem "tailwindcss-rails", "~> 2.7"
 gem "geocoder"
 gem "cloudinary"
 
+gem 'rails_admin', '~> 3.0'
 
 
 group :development, :test do
@@ -82,3 +83,4 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+gem "cssbundling-rails"

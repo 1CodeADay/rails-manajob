@@ -1,0 +1,10 @@
+ <%= form_with(model: client, url: update_pictures_client_path(client), local: true, html: { class:   'max-w-lg mx-auto mt-10' }) do |form| %>
+  <div class="mb-4">
+    <label class="block text-sm font-medium text-gray-700">Upload Pictures</label>
+    <%= form.file_field :pictures, multiple: true, class: 'mt-1 block w-full text-gray-900 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50' %>
+  </div>
+
+  <div>
+    <%= form.submit 'Update', class: 'w-300 inline-flex justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500' %>
+  </div>
+<% end %>

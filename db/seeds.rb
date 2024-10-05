@@ -62,15 +62,7 @@ image_urls = [
 ]
 
 clients = [
-  { first_name: "Ahmed", last_name: "El Mansouri", phone_number: "0661122334", address: "Rue Al Atlas, Casablanca Maroc" },
-  { first_name: "Fatima", last_name: "Benjelloun", phone_number: "0665566778", address: "Avenue Hassan II, Rabat Maroc" },
-  { first_name: "Mohamed", last_name: "Alaoui", phone_number: "0655443322", address: "Boulevard Mohammed V, Marrakech Maroc" },
-  { first_name: "Sara", last_name: "El Fassi", phone_number: "0642233445", address: "Quartier Souissi, Rabat Maroc Maroc" },
-  { first_name: "Khalid", last_name: "Bakkali", phone_number: "0677788990", address: "Quartier Maârif, Casablanca Maroc" },
-  { first_name: "Naima", last_name: "Zahraoui", phone_number: "0633445566", address: "Avenue Lalla Yacout, Fès Maroc" },
-  { first_name: "Yassine", last_name: "El Idrissi", phone_number: "0688221144", address: "Boulevard Hassan II, Tanger Maroc" },
-  { first_name: "Laila", last_name: "Ouazzani", phone_number: "0612334455", address: "Route de Safi, El Jadida Maroc" },
-  { first_name: "Hicham", last_name: "Taleb", phone_number: "0655123446", address: "Quartier Souk, Oujda Maroc" }
+  
 ]
 
 clients.each_with_index do |client_data, index|

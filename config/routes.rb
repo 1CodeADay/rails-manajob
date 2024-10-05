@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users
   root to: "pages#home"
   get "dashboard", to: "pages#dashboard"
   get "catalogue", to: "pages#catalogue"
 
-  resources :clients
+  resources :clients do
+    member do
+      get :edit_pictures
+      patch :update_pictures
+      delete :remove_picture
+    end
+  end
 
   resources :orders
   resources :items

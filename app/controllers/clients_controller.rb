@@ -2,7 +2,9 @@ class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
 
   def index
-    @clients = Client.all
+    client_ids = Order.where(user_id: current_user.id).pluck(:client_id).uniq
+    @clients = Client.where(id: client_ids)
+
 
     # The `geocoded` scope filters only flats with coordinates
     @markers = @clients.geocoded.map do |client|
@@ -22,6 +24,17 @@ class ClientsController < ApplicationController
       redirect_to clients_path(@client)
     end
   end
+
+  def update_pictures
+    @client = Client.find(params[:id])
+    if params[:client][:pictures].present?
+      params[:client][:pictures].each do |picture|
+        @client.pictures.attach(picture)
+      end
+    end
+    redirect_to edit_pictures_client_path(@client), notice: 'Pictures updated successfully.'
+  end
+
 
   def new
     @client = Client.new
@@ -49,7 +62,7 @@ class ClientsController < ApplicationController
 private
 
   def client_params
-    params.require(:client).permit(:first_name, :last_name, :phone_number, :address, :photo)
+    params.require(:client).permit(:first_name, :last_name, :phone_number, :address, :photo, pictures: [])
   end
 
   def set_client

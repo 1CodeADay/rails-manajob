@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
         ordre = Order.create!(client_id: params["client"], status: "pending", user_id: current_user.id)
       end
       ItemCart.create!(order_id: ordre.id, item_id: @item.id, deadline: params["deadline"], status: "pending")
-      redirect_to item_path(@item), :notice => "Successfully created item."
+      redirect_to orders_path, :notice => "Successfully created item."
     end
   end
 

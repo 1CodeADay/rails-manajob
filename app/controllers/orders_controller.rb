@@ -3,18 +3,21 @@ class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def index
-    @orders = Order.all
+    @orders = Order.where(user_id: current_user.id)
   end
 
   def new
     @order = Order.new
+    client_ids = Order.where(user_id: current_user.id).pluck(:client_id).uniq
+    no_orders_client_ids = Client.where.not(id: Order.pluck(:client_id).uniq).pluck(:id)
+    @clients = Client.where(id: client_ids + no_orders_client_ids)
   end
 
   def show
   end
 
   def edit
-    
+
   end
 
   def create
