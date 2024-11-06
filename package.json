@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "rails_admin": "3.2.0",
+    "sass": "^1.80.6",
     "tailwind": "^4.0.0"
   },
   "name": "rails-manajob",
@@ -19,9 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/1CodeADay/rails-manajob.git"
   },
-  "keywords": [
-
-  ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
