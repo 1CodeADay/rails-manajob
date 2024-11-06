@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :orders
+  resources :clients
   resources :items
   resources :item_measurements
 
